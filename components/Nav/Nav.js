@@ -7,7 +7,7 @@ import styles from "./Nav.module.scss";
 import Logo from "../../public/assets/nav/logo.svg";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-function Nav() {
+export default function Nav() {
   const matches = useMediaQuery("(min-width: 768px)");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -61,5 +61,3 @@ function Nav() {
     </header>
   );
 }
-
-export default dynamic(() => Promise.resolve(Nav), { ssr: false });
