@@ -3,32 +3,133 @@
   flex-flow: row nowrap;
 }
 
+%btn-navigation {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--grayish-violet);
+  margin-right: 2rem;
+  transition: all 200ms;
+
+  &:hover {
+    color: var(--dark-violet);
+  }
+}
+
 .navigation {
   @extend %flex-nowrap;
   align-items: center;
   padding: 3rem 0;
+  position: relative;
 }
 
 .navigationLogo {
-  margin-right: 2rem;
+  margin-right: 2.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .navigationLinks {
   @extend %flex-nowrap;
-  a {
-    font-size: medium;
-    font-weight: bold;
-    color: var(--grayish-violet);
-    margin-right: 2rem;
-    transition: all 200ms;
 
-    &:hover {
-      color: var(--dark-violet);
-    }
+  a {
+    @extend %btn-navigation;
   }
 }
 
 .navigationAccount {
   @extend %flex-nowrap;
   margin-left: auto;
+
+  button:first-child {
+    @extend %btn-navigation;
+  }
+
+  button:last-child {
+    @extend %btn-navigation;
+    color: white;
+    background: var(--cyan);
+    padding: 0.5rem 1.3rem;
+    border-radius: 4rem;
+
+    &:hover {
+      color: white;
+      opacity: 0.7;
+    }
+  }
+}
+
+.navigationBurgerMenu {
+  @extend %flex-nowrap;
+  margin-left: auto;
+  font-size: 2rem;
+  color: var(--grayish-violet);
+}
+
+.navigationMobile {
+  position: absolute;
+  bottom: -19rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: var(--dark-violet);
+  color: white;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-width: 275px;
+  border-radius: 1rem;
+  animation: fadeInAnimation 200ms;
+
+  .navigationMobileLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a:first-child {
+      margin: 1rem;
+      margin-top: 0;
+    }
+
+    a {
+      margin: 1rem;
+    }
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  .navigationMobileAccount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    button {
+      color: white;
+      font-weight: 500;
+      margin: 1rem 0;
+    }
+
+    button:last-child {
+      color: white;
+      background: var(--cyan);
+      padding: 0.5rem 1.3rem;
+      border-radius: 4rem;
+      min-width: 100%;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

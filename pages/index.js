@@ -18,12 +18,12 @@ export default function Index() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav></Nav>
-      <Hero></Hero>
-      <Shorten></Shorten>
-      <Stats></Stats>
-      <Boost></Boost>
-      <Footer></Footer>
+      <Nav />
+      <Hero />
+      <Shorten />
+      <Stats />
+      <Boost />
+      <Footer />
     </>
   );
 }
