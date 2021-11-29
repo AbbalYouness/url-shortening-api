@@ -5,7 +5,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "commit": "cz",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.0.4",
@@ -15,13 +17,24 @@
     "sass": "^1.43.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@commitlint/cz-commitlint": "^15.0.0",
+    "@commitlint/prompt": "^15.0.0",
+    "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.0.3"
+    "eslint-config-next": "12.0.3",
+    "husky": "^7.0.4"
   },
   "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   }
 }
